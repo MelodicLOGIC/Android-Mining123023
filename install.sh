@@ -29,27 +29,6 @@ echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
 
 wget ${GITHUB_DOWNLOAD_URL} -P ~/ccminer
 
-if [ -f ~/ccminer/config.json ]
-then
-  INPUT=
-  while [ "$INPUT" != "y" ] && [ "$INPUT" != "n" ]
-  do
-    printf '"~/ccminer/config.json" already exists. Do you want to overwrite? (y/n) '
-    read INPUT
-    if [ "$INPUT" = "y" ]
-    then
-      echo "\noverwriting current \"~/ccminer/config.json\"\n"
-      rm ~/ccminer/config.json
-    elif [ "$INPUT" = "n" ]
-    then
-      echo "saving as \"~/ccminer/config.json.#\""
-    else
-      echo 'Invalid input. Please answer with "y" or "n".\n'
-    fi
-  done
-fi
-wget https://github.com/MelodicLOGIC/Android-Mining123023/blob/main/config.json -P ~/ccminer
-
 if [ -f ~/ccminer/ccminer ]
 then
   mv ~/ccminer/ccminer ~/ccminer/ccminer_old
